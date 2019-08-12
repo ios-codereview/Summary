@@ -32,7 +32,7 @@
 1. SwiftLint 를 적용.
 2. 데이터 모델을 테이블 셀을 생성하면서 호출하고 있어서 데이터 모델의 분리가 필요.
 3. Error를 LocalizedError 따르는 것을 선호 (**중간맛** 효과).
-4. 가능하몉 ReuseKey 는 String Literal 을 쓰지않는 것이 좋음.
+4. 가능하면 ReuseKey 는 String Literal 을 쓰지않는 것이 좋음.
 5. 강제 캐스팅 및 에러 처리가 부족한한 부분들.
 6. FileManager 를 사용하여 데이터를 저장하는 것보다 DB를 사용하는 것이 적절함.
 
