@@ -25,7 +25,7 @@
 
 
 
-## 1. 조*영님 [코드리뷰](https://github.com/ios-codereview/WeatherForecast)
+## 1. junyng님 [코드리뷰](https://github.com/ios-codereview/WeatherForecast)
 40건의 Comment 를 드렸습니다.
 
 ### Comments
