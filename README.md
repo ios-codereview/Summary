@@ -25,7 +25,7 @@
 
 
 
-## 1. junyng님
+## 1. 익명님
 40건의 Comment 를 드렸습니다.
 
 ### Comments
