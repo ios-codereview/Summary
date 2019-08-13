@@ -49,6 +49,7 @@ https://open.kakao.com/o/sl4DKQyb
 클로저의 순환참조에 대해서 명확하게 알게되었습니다
 
 ## 2. Jae-Eun님 [코드리뷰](https://github.com/ios-codereview/Toonie) 매운맛
+20건의 Comment 를 드렸습니다.
 ### Comments
 * SwiftLint를 적용하였습니다.
 * 가능하면 네트워크 통신 Service는 Tesable 하도록 의존성 주입을 받아야 합니다.
