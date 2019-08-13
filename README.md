@@ -64,7 +64,7 @@ https://open.kakao.com/o/sl4DKQyb
 
 `UserDefaults.standard.integer(forKey: "appStartCount")`
 
-* ScreenUtls class 에서 resolution을 관리하는 것이 좋습니다.
+* ScreenUtils class 에서 resolution을 관리하는 것이 좋습니다.
 ```
 static let deviceWidth: CGFloat  = 375
 static let deviceHeight: CGFloat = 812
