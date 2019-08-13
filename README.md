@@ -87,7 +87,8 @@ static let chkToonieUpdate = {
 ```
 * UICollectionView 에서 row 보단 item이 적절합니다.
 `keywords[indexPath.row]`
-* Cell의 직접 속성을 가지는 것 보다 데이터모델을 만드는 것이 좋습니다.
+* Cell에서 직접 속성을 가지는 것 보다 데이터모델을 만드는 것이 좋습니다.
+
 `cell.cellStatus = false`
 * 네트워크나 io 작업은 viewWillAppear 보단 viewDidAppear 에서 하는 것이 좋습니다.
 ```
