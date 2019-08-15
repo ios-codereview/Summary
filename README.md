@@ -64,6 +64,9 @@ if let error = error {
 * [Refactoring] UserItem 은 Service에서 return 하는것이 적절하지 않습니다.
 ```
 class GithubAPI {
+        // Review: [Refactoring] UserItem 은 Service에서 return 하는것이 적절하지 않습니다.
+        // 순전히 Github Response 데이터를 return 하는 것이 좋습니다.
+        // ViewModel 에서 Mapping 작업을 해야 합니다.
 	func fetchUsers(with query: String?, page: Int) -> Observable<(repos: [UserItem], nextPage: Int?)>
 }
 ```
