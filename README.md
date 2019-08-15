@@ -38,22 +38,91 @@ https://open.kakao.com/o/sl4DKQyb
 
 
 
+## jinuman님 [코드리뷰](https://github.com/ios-codereview/github-user-search-ios) 매운맛
+15건의 Comment 를 드렸습니다. 
 
-## 1. 익명님 중간맛
-40건의 Comment 를 드렸습니다.
+__처음 RxSwift, ReactorKit 리뷰를 하게 되었습니다.__
 
-### Comments
-1. SwiftLint 를 적용.
-2. 데이터 모델을 테이블 셀을 생성하면서 호출하고 있어서 데이터 모델의 분리가 필요.
-3. Error를 LocalizedError 따르는 것을 선호 (**중간맛** 효과).
-4. 가능하면 ReuseKey 는 String Literal 을 쓰지않는 것이 좋음.
-5. 강제 캐스팅 및 에러 처리가 부족한한 부분들.
-6. FileManager 를 사용하여 데이터를 저장하는 것보다 DB를 사용하는 것이 적절함.
+**테스트코드를 작성해 드렸습니다.**
 
+[성능] 2건 [사용성] 9건 [경고] 1건 [Refactoring] 3건
+
+* [사용성] 이미지 다운로드 실패했을 경우 Placeholder 이미지를 보여줘야 합니다.
+```
+if let error = error {
+                // Review: [사용성] 이미지 다운로드 실패했을 경우 Placeholder 이미지를 보여줘야 합니다.
+                print(error.localizedDescription)
+                return
+            }
+```
+* [사용성] fetchUsers 를 실패하면 사용자에게 알려줘야 합니다.
+```
+ func fetchUsers(with query: String?, page: Int) -> Observable<(repos: [UserItem], nextPage: Int?)> {
+        // Review: [사용성] fetchUsers 를 실패하면 사용자에게 알려줘야 합니다.
+        let emptyResult: ([UserItem], Int?) = ([], nil)
+```
+
+* [사용성] 검색된 결과가 없다면 "검색 결과가 없습니다" View가 보여줘야 합니다.
+* [Refactoring] UserItem 은 Service에서 return 하는것이 적절하지 않습니다.
+```
+class GithubAPI {
+	func fetchUsers(with query: String?, page: Int) -> Observable<(repos: [UserItem], nextPage: Int?)>
+}
+```
+* [경고] 순환참조가 발생할 수 있습니다.
+```
+ private let tapGestureByLabel: UITapGestureRecognizer = UITapGestureRecognizer()
+    private lazy var usernameLabel: UILabel = {
+        // Review: [경고] 순환참조가 발생할 수 있습니다.
+        // https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID56
+        // class HTMLElement 코드를 참조하였습니다.
+        label.addGestureRecognizer(tapGestureByLabel)
+        return label
+    }()
+```
+* [성능] NextPage를 2번 가지고 오면 총 7번의 연산이 들어갑니다.
+```
+func testUserItemPaging() {
+        // 페이징 동작이 잘 동작하는 지 검증
+        let expect = [
+            [Fixture.UserItems.sampleUserItems.shuffled().first!],
+            [Fixture.UserItems.sampleUserItems.shuffled().first!],
+            [Fixture.UserItems.sampleUserItems.shuffled().first!]
+        ]
+        reset(api)
+        api.setUserItemsPaging(expect)
+
+        let rxExpect = RxExpect()
+        rxExpect.retain(reactor)
+
+        rxExpect.input(reactor.action, [
+                .next(0, .updateQuery("a")),
+                .next(10, .loadNextPage),
+                .next(20, .loadNextPage),
+            ])
+
+        // Reivew: [성능] NextPage를 2번 가지고 오면 총 7번의 연산이 들어갑니다.
+        // 3번의 Action을 수행했기 때문에 3번만 Item을 가지고 올 수 있도록 전략이 필요합니다.
+        // 배열의 크기가 커지면 치명적인 성능저하가 일어납니다.
+        rxExpect.assert(reactor.state.map { $0.userItems }.filterEmpty()) { events in
+            XCTAssertEqual(events.count, 7)
+            XCTAssertEqual(events[0], .next(0, expect[0]))
+            XCTAssertEqual(events[1], .next(10, expect[0]))
+            XCTAssertEqual(events[2], .next(10, expect[0] + expect[1]))
+            XCTAssertEqual(events[3], .next(10, expect[0] + expect[1]))
+            XCTAssertEqual(events[4], .next(20, expect[0] + expect[1]))
+            XCTAssertEqual(events[5], .next(20, expect[0] + expect[1] + expect[2]))
+            XCTAssertEqual(events[6], .next(20, expect[0] + expect[1] + expect[2]))
+        }
+    }
+```
 ### 배운점
-클로저의 순환참조에 대해서 명확하게 알게되었습니다
+ReactorKit 의 훌륭한 아키텍처를 경험할 수 있었습니다.
 
-## 2. Jae-Eun님 [코드리뷰](https://github.com/ios-codereview/Toonie) 매운맛
+TestCode를 작성하며 성능의 미치는 영향을 알 수 있어서 좋았습니다.
+
+
+## Jae-Eun님 [코드리뷰](https://github.com/ios-codereview/Toonie) 매운맛
 20건의 Comment 를 드렸습니다.
 ### Comments
 * SwiftLint를 적용하였습니다.
@@ -108,3 +177,17 @@ static let chkToonieUpdate = {
 앱의 디자인도 상당히 우수하며 3분이서 같이 개발에 참여하면서 코드의 스타일이 일관성이 있어서 협업이 정말 좋았다라는 걸 느꼈습니다.
 
 잘 만든 앱을 리뷰하게 되어서 영광입니다.
+
+## 익명님 중간맛
+40건의 Comment 를 드렸습니다.
+
+### Comments
+1. SwiftLint 를 적용.
+2. 데이터 모델을 테이블 셀을 생성하면서 호출하고 있어서 데이터 모델의 분리가 필요.
+3. Error를 LocalizedError 따르는 것을 선호 (**중간맛** 효과).
+4. 가능하면 ReuseKey 는 String Literal 을 쓰지않는 것이 좋음.
+5. 강제 캐스팅 및 에러 처리가 부족한한 부분들.
+6. FileManager 를 사용하여 데이터를 저장하는 것보다 DB를 사용하는 것이 적절함.
+
+### 배운점
+클로저의 순환참조에 대해서 명확하게 알게되었습니다
