@@ -34,7 +34,9 @@ https://open.kakao.com/o/sl4DKQyb
 ## 정보 공개 동의
 코드 리뷰의 결과를 공개하는데 동의가 필요합니다.
 ### 필수 
-* Source Code, Comments
+* Source Code
+### 선택
+Comments
 
 
 
