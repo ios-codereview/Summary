@@ -53,7 +53,7 @@ https://open.kakao.com/o/sl4DKQyb
 비공개
 
 ### 리뷰 후기
- * 이미지 검색 결과가 TableView 와 CollectionView 두 가지이며 Paging 기능도 제공하고 있습니다.
+ * 이미지 검색 결과가 TableView 와 CollectionView 두 가지 타입으로 지원하며 Paging 기능도 제공하고 있습니다.
  * 손이 많이 가는 작업들이었으며 훌륭하게 기능을 구현하셨습니다!
 
 ## sogih님 [코드리뷰](https://github.com/ios-codereview/github-user-search-ios) 매운맛
