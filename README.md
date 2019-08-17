@@ -47,7 +47,8 @@ __처음 RxSwift, ReactorKit 리뷰를 하게 되었습니다.__
 **테스트코드를 작성해 드렸습니다.**
 
 [성능] 2건 [사용성] 9건 [경고] 1건 [Refactoring] 3건
-
+### Comments
+비공개
 ### 배운점
 ReactorKit 의 훌륭한 아키텍처를 경험할 수 있었습니다.
 
@@ -57,54 +58,7 @@ TestCode를 작성하며 성능의 미치는 영향을 알 수 있어서 좋았�
 ## Jae-Eun님 [코드리뷰](https://github.com/ios-codereview/Toonie) 매운맛
 20건의 Comment 를 드렸습니다.
 ### Comments
-* SwiftLint를 적용하였습니다.
-* 가능하면 네트워크 통신 Service는 Tesable 하도록 의존성 주입을 받아야 합니다.
-* 네트워크 통신을 하는 동안 사용자에게 로딩을 보여주고 로딩이 보여지는 동안 사용자 이벤트가 동작하지 않아야 합니다.
-* 부모 ViewController 에 따라 자식 ViewController 는 종료되는 것이 좋습니다.
-
-`self.navigationController?.popViewController(animated: true)`  
-* extension 함수를 활용하는 것이 좋습니다.
-
-`func makeRandomList<T>(_ list: [T], number: Int) -> [T]`
-* UserDefaults 의 Key 가 String literal 로 설정하지 않는 것이 좋습니다.
-
-`UserDefaults.standard.integer(forKey: "appStartCount")`
-
-* ScreenUtils class 에서 resolution을 관리하는 것이 좋습니다.
-```
-static let deviceWidth: CGFloat  = 375
-static let deviceHeight: CGFloat = 812
-```
-* 에러를 흘러보내는 Case가 있었습니다.
-```
-case .networkError(let error):
-    print(error)
-case .networkFail:
-    print("ToonofTag Network Fail")
-```
-* encode 하지 않는 객체가 Codable protocol을 따르고 있었습니다.
-
-`struct ChkToonieUpdate: Codable`
-* API Path를 지정할 때 Builder 패턴을 사용하면 좋습니다.
-```
-static let chkToonieUpdate = {
-        return baseURL + "/version"
-    }()
-```
-* UICollectionView 에서 row 보단 item이 적절합니다.
-`keywords[indexPath.row]`
-* Cell에서 직접 속성을 가지는 것 보다 데이터모델을 만드는 것이 좋습니다.
-
-`cell.cellStatus = false`
-* 네트워크나 io 작업은 viewWillAppear 보단 viewDidAppear 에서 하는 것이 좋습니다.
-```
- override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setKeywordValue()
-        setSelectedKeywordValue()
-    }
-```
-
+비공개
 ### 배운점
 앱의 디자인도 상당히 우수하며 3분이서 같이 개발에 참여하면서 코드의 스타일이 일관성이 있어서 협업이 정말 좋았다라는 걸 느꼈습니다.
 
@@ -112,14 +66,7 @@ static let chkToonieUpdate = {
 
 ## 익명님 중간맛
 40건의 Comment 를 드렸습니다.
-
 ### Comments
-1. SwiftLint 를 적용.
-2. 데이터 모델을 테이블 셀을 생성하면서 호출하고 있어서 데이터 모델의 분리가 필요.
-3. Error를 LocalizedError 따르는 것을 선호 (**중간맛** 효과).
-4. 가능하면 ReuseKey 는 String Literal 을 쓰지않는 것이 좋음.
-5. 강제 캐스팅 및 에러 처리가 부족한한 부분들.
-6. FileManager 를 사용하여 데이터를 저장하는 것보다 DB를 사용하는 것이 적절함.
-
+비공개
 ### 배운점
 클로저의 순환참조에 대해서 명확하게 알게되었습니다
