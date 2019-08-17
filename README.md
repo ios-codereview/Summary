@@ -50,7 +50,7 @@ https://open.kakao.com/o/sl4DKQyb
 [성능] 3건 [사용성] 5건 [Refactoring] 12건
 
 ### Comments
-비공개
+표시하지 않음
 
 ### 리뷰 후기
  * 이미지 검색 결과가 TableView 와 CollectionView 두 가지 타입으로 지원하며 Paging 기능도 제공하고 있습니다.
@@ -62,7 +62,7 @@ https://open.kakao.com/o/sl4DKQyb
 [성능] 1건 [사용성] 1건 [Refactoring] 13건
 
 ### Comments
-비공개
+표시하지 않음
 
 ### 리뷰 후기
 * 개발자가 뛰어나고 일관성있는 애니메이션을 표현하는 것은 어려운 일이라고 생각합니다.
@@ -78,7 +78,7 @@ __처음 RxSwift, ReactorKit 리뷰를 하게 되었습니다.__
 
 [성능] 2건 [사용성] 9건 [경고] 1건 [Refactoring] 3건
 ### Comments
-비공개
+표시하지 않음
 
 ### 리뷰 후기
 * ReactorKit 의 훌륭한 아키텍처를 경험할 수 있었습니다.
@@ -88,7 +88,7 @@ __처음 RxSwift, ReactorKit 리뷰를 하게 되었습니다.__
 ## Jae-Eun님 [코드리뷰](https://github.com/ios-codereview/Toonie) 매운맛
 20건의 Comment 를 드렸습니다.
 ### Comments
-비공개
+표시하지 않음
 ### 리뷰 후기
 * 앱의 디자인도 상당히 우수하며 3분이서 같이 개발에 참여하면서 코드의 스타일이 일관성이 있어서 협업이 정말 좋았다라는 걸 느꼈습니다.
 * 잘 만든 앱을 리뷰하게 되어서 영광입니다.
