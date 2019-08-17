@@ -38,9 +38,9 @@ https://open.kakao.com/o/sl4DKQyb
 * Source Code
 ### 선택
 * Comments 
-> 표시하지 않은 Default
+> Default: 비공개
 
-표시하도록 원하시는 경우 Github Summary에 Comment 내용이 표시됩니다.
+공개를 원하시는 경우 Github Summary에 Comment 내용이 표시됩니다.
 
 
 
