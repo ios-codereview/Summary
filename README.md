@@ -44,6 +44,20 @@ https://open.kakao.com/o/sl4DKQyb
 
 
 
+## onemoonStudio [코드리뷰](https://github.com/ios-codereview/randomImage) 매운맛
+20건의 Comment 를 드렸습니다. 
+
+[성능] 3건 [사용성] 5건 [Refactoring] 12건
+
+### Comments
+비공개
+
+### 리뷰 후기
+* Reviewer: 
+
+이미지 검색 결과가 TableView 와 CollectionView 두 가지이며 Paging 기능도 제공하고 있습니다.
+손이 많이 가는 작업들이었으며 훌륭하게 기능을 구현하셨습니다!
+
 ## sogih님 [코드리뷰](https://github.com/ios-codereview/github-user-search-ios) 매운맛
 15건의 Comment 를 드렸습니다. 
 
@@ -52,10 +66,12 @@ https://open.kakao.com/o/sl4DKQyb
 ### Comments
 비공개
 
-### 배운점
+### 리뷰 후기
+* Reviewer: 
 
 개발자가 뛰어나고 일관성있는 애니메이션을 표현하는 것은 어려운 일이라고 생각합니다.
 이 부분에 많은 시간과 노력을 투자했을 것이라 생각합니다.
+
 덕분에 사용성이 좋은 애니메이션 효과를 경험하였습니다.
 
 ## jinuman님 [코드리뷰](https://github.com/ios-codereview/github-user-search-ios) 매운맛
@@ -69,7 +85,9 @@ __처음 RxSwift, ReactorKit 리뷰를 하게 되었습니다.__
 ### Comments
 비공개
 
-### 배운점
+### 리뷰 후기
+* Reviewer: 
+
 ReactorKit 의 훌륭한 아키텍처를 경험할 수 있었습니다.
 
 TestCode를 작성하며 성능의 미치는 영향을 알 수 있어서 좋았습니다.
@@ -79,7 +97,9 @@ TestCode를 작성하며 성능의 미치는 영향을 알 수 있어서 좋았�
 20건의 Comment 를 드렸습니다.
 ### Comments
 비공개
-### 배운점
+### 리뷰 후기
+* Reviewer: 
+
 앱의 디자인도 상당히 우수하며 3분이서 같이 개발에 참여하면서 코드의 스타일이 일관성이 있어서 협업이 정말 좋았다라는 걸 느꼈습니다.
 
 잘 만든 앱을 리뷰하게 되어서 영광입니다.
@@ -88,5 +108,8 @@ TestCode를 작성하며 성능의 미치는 영향을 알 수 있어서 좋았�
 40건의 Comment 를 드렸습니다.
 ### Comments
 비공개
-### 배운점
+### 리뷰 후기
+* Reviewer:
+ 
 클로저의 순환참조에 대해서 명확하게 알게되었습니다
+
