@@ -37,7 +37,10 @@ https://open.kakao.com/o/sl4DKQyb
 ### 필수 
 * Source Code
 ### 선택
-* Comments
+* Comments 
+> 표시하지 않은 Default
+
+표시하도록 원하시는 경우 Github Summary에 Comment 내용이 표시됩니다.
 
 
 
