@@ -41,6 +41,19 @@ https://open.kakao.com/o/sl4DKQyb
 
 
 
+## sogih님 [코드리뷰](https://github.com/ios-codereview/github-user-search-ios) 매운맛
+15건의 Comment 를 드렸습니다. 
+
+[성능] 1건 [사용성] 1건 [Refactoring] 13건
+
+### Comments
+비공개
+
+### 배운점
+
+개발자가 뛰어나고 일관성있는 애니메이션을 표현하는 것은 어려운 일이라고 생각합니다.
+이 부분에 많은 시간과 노력을 투자했을 것이라 생각합니다.
+덕분에 사용성이 좋은 애니메이션 효과를 경험하였습니다.
 
 ## jinuman님 [코드리뷰](https://github.com/ios-codereview/github-user-search-ios) 매운맛
 15건의 Comment 를 드렸습니다. 
@@ -52,6 +65,7 @@ __처음 RxSwift, ReactorKit 리뷰를 하게 되었습니다.__
 [성능] 2건 [사용성] 9건 [경고] 1건 [Refactoring] 3건
 ### Comments
 비공개
+
 ### 배운점
 ReactorKit 의 훌륭한 아키텍처를 경험할 수 있었습니다.
 
