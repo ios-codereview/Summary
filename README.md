@@ -37,7 +37,7 @@ https://open.kakao.com/o/sl4DKQyb
 ### 필수 
 * Source Code
 ### 선택
-Comments
+* Comments
 
 
 
