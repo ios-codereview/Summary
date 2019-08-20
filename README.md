@@ -48,11 +48,69 @@ https://open.kakao.com/o/sl4DKQyb
 [성능] 3건 [사용성] 5건 [Refactoring] 12건
 
 ### Comments
-표시하지 않음
+
+* [성능] async 로 동작하는게 좋지 않을까요?
+```
+CacheImageManager.downsampledImageQueue.async(execute: imageTask)
+```
+* [성능] Image 다운로드 중인 네트워크 작업들을 취소하는것이 좋지 않을까요?
+```
+func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+// 취소
+}
+```
+* [사용성] 하얀색 이미지를 Zoom 하면 Close 버튼이 보여지지 않습니다. (같은 흰색이기 때문에 겹침니다)
+```
+@IBOutlet weak var closeButton: UIButton! {
+        didSet {
+            closeButton.addTarget(self, action: #selector(closeImageDetail), for: .touchUpInside)
+        }
+    }
+ ```
+* [사용성] 화면을 회전한 경우 제대로 Frame이 설정되지 않습니다.
+
+viewDidLayoutSubviews 에서 layout을 update을 하는건 어떨까요?
+``` 
+ lazy var imageFrame: CGRect
+
+```
+* [Refactoring] Cache와 API에서 Image를 가져오는 것은 Repository 패턴을 사용하는건 어떨까요?
+
+![](https://miro.medium.com/max/1400/1*UDzzNYwInvHg25V_OtWejg.jpeg)
+
+* [Refactroing] 이미지 다운로드의 같은 작업이 이미 실행 중인지 검사도 필요하지 않을까요? (ImageURL은 중복될 수 있습니다)
+```
+APIManager.downloadImageData(urlString) { (data)
+```
+* [Refactoring] 이미지 다운로드의 URLSession은 ephemeral 옵션으로 생성하는건 어떨까요?
+
+ephemeral은 캐시, 쿠키 또는 자격 증명에 영구 저장소를 사용하지 않는 세션 구성입니다.
+
+```
+URLSession(configuration: .default).dataTask(with: url) { (data, _, error)
+```
+* [Refactoring] 정확한 기능을 명시하는건 어떨까요?
+
+`ex) centerIfNeeded`
+```
+ func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        ...
+        imageView.frame.origin = newImageOrigin
+    }
+```
+* [Refactoring] 유연하게 API를 호출 할 수 있도록 URLRequest 를 Parameter로 전달하는건 어떨까요?
+
+`keyword: String, page: Int` 를 parameter 로 받으면 특정 API 만 사용할 수 있게 됩니다.
+범용적으로 쓰기 위해선 URLRequest로 전달하는 것이 좋습니다.
+```
+func imageItems(request: URLRequest, completion: @escaping (_ imageData: [ImageItem]?, _ error: Error? ) -> Void )
+```
 
 ### 리뷰 후기
  * 이미지 검색 결과가 TableView 와 CollectionView 두 가지 타입으로 지원하며 Paging 기능도 제공하고 있습니다.
  * 손이 많이 가는 작업들이었으며 훌륭하게 기능을 구현하셨습니다!
+
+> 좋은 리뷰 감사합니다! 리뷰를 받으니 조금 더 명확하게 짜는 습관을 길러야 겠다는 생각이 드네요 ! 😃
 
 ## sogih님 [코드리뷰](https://github.com/ios-codereview/github-user-search-ios) 매운맛
 15건의 Comment 를 드렸습니다. 
