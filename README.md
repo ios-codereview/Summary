@@ -103,17 +103,6 @@ class GithubAPI {
 	func fetchUsers(with query: String?, page: Int) -> Observable<(repos: [UserItem], nextPage: Int?)>
 }
 ```
-* [경고] 순환참조가 발생할 수 있습니다.
-```
- private let tapGestureByLabel: UITapGestureRecognizer = UITapGestureRecognizer()
-    private lazy var usernameLabel: UILabel = {
-        // Review: [경고] 순환참조가 발생할 수 있습니다.
-        // https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID56
-        // class HTMLElement 코드를 참조하였습니다.
-        label.addGestureRecognizer(tapGestureByLabel)
-        return label
-    }()
-```
 * [성능] NextPage를 2번 가지고 오면 총 7번의 연산이 들어갑니다.
 ```
 func testUserItemPaging() {
