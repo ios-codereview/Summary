@@ -75,8 +75,81 @@ __처음 RxSwift, ReactorKit 리뷰를 하게 되었습니다.__
 **테스트코드를 작성해 드렸습니다.**
 
 [성능] 2건 [사용성] 9건 [경고] 1건 [Refactoring] 3건
+
 ### Comments
-표시하지 않음
+
+* [사용성] 이미지 다운로드 실패했을 경우 Placeholder 이미지를 보여줘야 합니다.
+```
+if let error = error {
+                // Review: [사용성] 이미지 다운로드 실패했을 경우 Placeholder 이미지를 보여줘야 합니다.
+                print(error.localizedDescription)
+                return
+            }
+```
+* [사용성] fetchUsers 를 실패하면 사용자에게 알려줘야 합니다.
+```
+ func fetchUsers(with query: String?, page: Int) -> Observable<(repos: [UserItem], nextPage: Int?)> {
+        // Review: [사용성] fetchUsers 를 실패하면 사용자에게 알려줘야 합니다.
+        let emptyResult: ([UserItem], Int?) = ([], nil)
+```
+
+* [사용성] 검색된 결과가 없다면 "검색 결과가 없습니다" View가 보여줘야 합니다.
+* [Refactoring] UserItem 은 Service에서 return 하는것이 적절하지 않습니다.
+```
+class GithubAPI {
+        // Review: [Refactoring] UserItem 은 Service에서 return 하는것이 적절하지 않습니다.
+        // 순전히 Github Response 데이터를 return 하는 것이 좋습니다.
+        // ViewModel 에서 Mapping 작업을 해야 합니다.
+	func fetchUsers(with query: String?, page: Int) -> Observable<(repos: [UserItem], nextPage: Int?)>
+}
+```
+* [경고] 순환참조가 발생할 수 있습니다.
+```
+ private let tapGestureByLabel: UITapGestureRecognizer = UITapGestureRecognizer()
+    private lazy var usernameLabel: UILabel = {
+        // Review: [경고] 순환참조가 발생할 수 있습니다.
+        // https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID56
+        // class HTMLElement 코드를 참조하였습니다.
+        label.addGestureRecognizer(tapGestureByLabel)
+        return label
+    }()
+```
+* [성능] NextPage를 2번 가지고 오면 총 7번의 연산이 들어갑니다.
+```
+func testUserItemPaging() {
+        // 페이징 동작이 잘 동작하는 지 검증
+        let expect = [
+            [Fixture.UserItems.sampleUserItems.shuffled().first!],
+            [Fixture.UserItems.sampleUserItems.shuffled().first!],
+            [Fixture.UserItems.sampleUserItems.shuffled().first!]
+        ]
+        reset(api)
+        api.setUserItemsPaging(expect)
+
+        let rxExpect = RxExpect()
+        rxExpect.retain(reactor)
+
+        rxExpect.input(reactor.action, [
+                .next(0, .updateQuery("a")),
+                .next(10, .loadNextPage),
+                .next(20, .loadNextPage),
+            ])
+
+        // Reivew: [성능] NextPage를 2번 가지고 오면 총 7번의 연산이 들어갑니다.
+        // 3번의 Action을 수행했기 때문에 3번만 Item을 가지고 올 수 있도록 전략이 필요합니다.
+        // 배열의 크기가 커지면 치명적인 성능저하가 일어납니다.
+        rxExpect.assert(reactor.state.map { $0.userItems }.filterEmpty()) { events in
+            XCTAssertEqual(events.count, 7)
+            XCTAssertEqual(events[0], .next(0, expect[0]))
+            XCTAssertEqual(events[1], .next(10, expect[0]))
+            XCTAssertEqual(events[2], .next(10, expect[0] + expect[1]))
+            XCTAssertEqual(events[3], .next(10, expect[0] + expect[1]))
+            XCTAssertEqual(events[4], .next(20, expect[0] + expect[1]))
+            XCTAssertEqual(events[5], .next(20, expect[0] + expect[1] + expect[2]))
+            XCTAssertEqual(events[6], .next(20, expect[0] + expect[1] + expect[2]))
+        }
+    }
+```
 
 ### 리뷰 후기
 * jinuman님의 훌륭한 아키텍처를 경험할 수 있었습니다.
