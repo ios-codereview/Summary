@@ -51,7 +51,7 @@ https://open.kakao.com/o/sl4DKQyb
 
 * [성능] async 로 동작하는게 좋지 않을까요?
 ```
-CacheImageManager.downsampledImageQueue.async(execute: imageTask)
+CacheImageManager.downsampledImageQueue.sync(execute: imageTask)
 ```
 * [성능] Image 다운로드 중인 네트워크 작업들을 취소하는것이 좋지 않을까요?
 ```
