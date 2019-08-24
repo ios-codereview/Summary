@@ -42,6 +42,20 @@ https://open.kakao.com/o/sl4DKQyb
 
 
 
+
+## applebuddy님 [코드리뷰](https://github.com/ios-codereview/WeatherCopyApp) 매운맛
+27건의 Comment 를 드렸습니다. 
+
+[Refactoring] 17건 [사용성] 6건 [경고] 2건 [성능] 2건
+
+### Comments
+표시하지 않음
+
+### 리뷰 후기
+* 멋진 Nested ScrollView 를 구현하셨습니다. 상당히 까다로운 작업이 많았을 것이라 생각합니다.
+멋진 날씨 앱이었습니다!
+
+
 ## onemoonStudio [코드리뷰](https://github.com/ios-codereview/randomImage) 매운맛
 20건의 Comment 를 드렸습니다. 
 
