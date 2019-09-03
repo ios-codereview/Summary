@@ -42,6 +42,18 @@ https://open.kakao.com/o/sl4DKQyb
 
 
 
+## namsoo5님 [코드리뷰](https://github.com/ios-codereview/DanBee_iOS) 매운맛
+27건의 Comment 를 드렸습니다. 
+
+[Refactoring] 19건 [사용성] 4건 [이슈] 4건
+
+### Comments
+표시하지 않음
+
+### 리뷰 후기
+* DanBee 라는 멋진 컨셉으로 혼자 많은 화면을 개발하고 계셨습니다.
+사용성 부분과 MVVM 아키텍처를 능숙하게 다루시게 된다면 멋진 앱이 될 것 같습니다.
+
 
 ## applebuddy님 [코드리뷰](https://github.com/ios-codereview/WeatherCopyApp) 매운맛
 27건의 Comment 를 드렸습니다. 
