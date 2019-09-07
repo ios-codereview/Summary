@@ -42,6 +42,17 @@ https://open.kakao.com/o/sl4DKQyb
 
 
 
+## 92pino님 [코드리뷰](https://github.com/ios-codereview/StoreCopy) 매운맛
+14건의 Comment 를 드렸습니다. 
+
+[Refactoring] 6건 [사용성] 5건 성능 2건 [이슈] 1건
+
+### Comments
+표시하지 않음
+
+### 리뷰 후기
+* TableView, CollectionView 두가지 버전의 멋진 앱스토어를 구현하셨습니다. 
+
 ## namsoo5님 [코드리뷰](https://github.com/ios-codereview/DanBee_iOS) 매운맛
 27건의 Comment 를 드렸습니다. 
 
