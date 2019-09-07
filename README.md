@@ -149,7 +149,7 @@ func imageItems(request: URLRequest, completion: @escaping (_ imageData: [ImageI
 
 > 좋은 리뷰 감사합니다! 리뷰를 받으니 조금 더 명확하게 짜는 습관을 길러야 겠다는 생각이 드네요 ! 😃
 
-## sogih님 [코드리뷰](https://github.com/ios-codereview/github-user-search-ios) 매운맛
+## sogih님 [코드리뷰](https://github.com/ios-codereview/Daimo) 매운맛
 15건의 Comment 를 드렸습니다. 
 
 [성능] 1건 [사용성] 1건 [Refactoring] 13건
